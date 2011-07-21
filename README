@@ -1,0 +1,61 @@
+very initial readme.
+Please note this readme is intended for a future commit, the code is as yet not this functional.
+
+php-isotype-api
+------------------
+these file(s) allow the creation of sag images in the isotope style (also known as the Vienna or Warsaw methods)
+
+installation
+--------------
+place the file(s) where they can be accessed by a web server,
+additional options are listed below
+
+options
+---------
+either run
+isotype_form.php to access a fully functional form 
+
+or you can pass variables through either post or get directly to the isotype.php file
+eg www.myurl/isotype.php?icon=man&colour=blue
+
+current variables
+---
+icon =
+colour = 
+
+for americans the use of the command color can be used instead of colour, though if both are used colour will take prescience.
+
+single colours can be either html allows 'named' colours or by use of hex please do not use the #)
+
+Available icon choices are listed in the file, but if you can't read php they are as follows:
+man
+woman
+baby
+house
+pound
+euro
+ambulance
+bed
+old
+hospital
+beer
+bus
+
+additional paths can be added 
+Please note POST is given preference to GET
+some options can be restricted in the options.cfg file (for instance allowing only get or vice versa)
+
+Goals / future versions & TODO's
+------------------------------------
+As the php isotope api currently exists its a mass on non functional code, 
+goals are as follows
+0. fix current code
+0(b). allow for basic settings in a cfg file
+1. multiple colours per icon
+2. multiple sets of similar icons in a grid layout
+3. complex colour options over multiple icons
+4. additional layout options
+5. multiple icon layouts using differing icons (for say a family) 
+
+
+
