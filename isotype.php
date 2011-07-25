@@ -9,19 +9,21 @@ Header('Content-type: image/svg+xml; charset=utf-8');
 */
 $variables   = array();
 $adjustments = array();
-
 	
 // check the type is set
 if (isset($_GET['type']) && $_GET['type']!='')                { $variables['type']         = $_GET['type']; } 
 else                                                          { $variables['type']         = 'couple'; }
+
 // check arrangement
 // note Arrangement can be overridden dependant on numicons
 if (isset($_GET['arrangement']) && $_GET['arrangement']!='')  { $variables['arrangement']  = $_GET['arrangement']; }
 else                                                          { $variables['arrangement']  = 'block'; }
+
 // values building
 // check the number of values
 if (isset($_GET['numvalues']) && $_GET['numvalues']!='')      { $variables['numvalues']    = $_GET['numvalues']; } 
 if(!isset($_GET['numvalues']) or ($_GET['numvalues']=='0') )  { $variables['numvalues']    = 1; }
+
 // api numvalues fix
 if ($variables['numvalues'] == '0')                           { $variables['numvalues']    = '1'; }
 // check the number of icons ( not always applicable)
@@ -29,81 +31,33 @@ if (isset($_GET['numicons']) && ($_GET['numicons']!='' ) )    { $variables['numi
 if(!isset($_GET['numicons']) or ($_GET['numicons']=='0') )    { $variables['numicons']     = 1; }
 if (isset($_GET['value1'])   )                                { $variables['value1']       = $_GET['value1'] ;} 
 else                                                          { $variables['value1']       = 50 ;}
+
 if ($variables['value1']== 0 )                                { $variables['value1']       = 50 ;}
 		
 if (isset($_GET['yvalue1'])   )                               { $variables['yvalue1']      = $_GET['yvalue1'] ;} 
 else                                                          { $variables['yvalue1']      = 0 ; } 
 
 // headers & labels
-if (isset($_GET['showheader']) && $_GET['showheader']==1) {
-       $variables['showheader']  = TRUE ;
-}
-else { $variables['showheader']  = FALSE;
-}
-if (isset($_GET['showlabels']) && $_GET['showlabels']==1) {
-       $variables['showlabels']  = TRUE;
-}
-else { $variables['showlabels']  = FALSE;
-}
-if (isset($_GET['showkey']) && $_GET['showkey']==1) {
-       $variables['showkey']     = TRUE;
-}
-else { $variables['showkey']     = FALSE;
-}
-if (isset($_GET['showvalues']) && $_GET['showvalues']==1) {
-       $variables['showvalues']  = TRUE;
-}
-else { $variables['showvalues']  = FALSE;
-}
+if (isset($_GET['showheader']) && $_GET['showheader']==1)     { $variables['showheader']   = TRUE ;}
+else                                                          { $variables['showheader']   = FALSE;}
+
+if (isset($_GET['showlabels']) && $_GET['showlabels']==1)     { $variables['showlabels']   = TRUE;}
+else                                                          { $variables['showlabels']   = FALSE;}
+
+if (isset($_GET['showkey']) && $_GET['showkey']==1)           { $variables['showkey']      = TRUE;}
+else                                                          { $variables['showkey']      = FALSE;}
+
+if (isset($_GET['showvalues']) && $_GET['showvalues']==1)     { $variables['showvalues']   = TRUE;}
+else                                                          { $variables['showvalues']   = FALSE;}
 
 // visstyle
-if (isset($_GET['visstyle']) && $_GET['visstyle']!='') {
-	$variables['visstyle']  = $_GET['visstyle'];
-} else {
-	$variables['visstyle']  ='total_gradient';
-}
+if (isset($_GET['visstyle']) && $_GET['visstyle']!='')        { $variables['visstyle']     = $_GET['visstyle'];} 
+else                                                          { $variables['visstyle']     ='total_gradient';}
 
 // colours
-if (!isset($_GET['palette']) or $_GET['palette']!='') {
-	$variables['palette']['value']  = 1;
-} else {
-	$variables['palette']['value']  =$_GET['palette'];
-}
+if (!isset($_GET['palette']) or $_GET['palette']!='')         { $variables['palette']['value']  = 1;} 
+else                                                          { $variables['palette']['value']  =$_GET['palette'];}
 
-
-// values fix
-// this fixes any unset values
-//1.check for any set values
-// fill in missing values with missing values or holding value
-$value_check_counter=1;
-$values_build_arrary = array();
-while ($value_check_counter <=$variables['numvalues'] ) {
-  if( Isset($_GET['value'.$value_check_counter]) && (     ($_GET['value'.$value_check_counter]!='' ) or ( $_GET['value'.$value_check_counter]!='0') )   ) {
-    $values_build_arrary[] = $_GET['value'.$value_check_counter];
-    $variables['value'.$value_check_counter] = $_GET['value'.$value_check_counter] ;
-    
-  }
-  $value_check_counter++;
-}
-
-if (!isset($values_build_arrary['0'])) {
-$values_build_arrary['0']=50;
-}
-
-$value_check_counter=1;
-$place_counter=0;
-$values_build_arrary = array();
-while ($value_check_counter <=$variables['numvalues'] ) {
- if (!isset( $variables['value'.$value_check_counter]) ) {
-   $variables['value'.$value_check_counter]=$values_build_arrary[$place_counter];
- }
- else {
-   $place_counter++;
- }
-   $value_check_counter++;
-}
-
-// variance happens when the y value is different for different values (eg. v1y=123 , v2y=150)
 
 // end of input validation
 //-------------------------------------------------------------------------------------------
