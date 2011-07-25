@@ -4,6 +4,8 @@
 // isince this script alwayds outputs svg set the header as svg
 Header('Content-type: image/svg+xml; charset=utf-8');
 
+
+
 /*
 *input processing
 */
@@ -36,6 +38,7 @@ if ($variables['value1']== 0 )                                { $variables['valu
 		
 if (isset($_GET['yvalue1'])   )                               { $variables['yvalue1']      = $_GET['yvalue1'] ;} 
 else                                                          { $variables['yvalue1']      = 0 ; } 
+
 
 // headers & labels
 if (isset($_GET['showheader']) && $_GET['showheader']==1)     { $variables['showheader']   = TRUE ;}
