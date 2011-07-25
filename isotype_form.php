@@ -9,6 +9,13 @@ icon type:
 	</select>
 	<br />
 value:< input type="text" name="value">
+<br />
+colour sets
+<input type="radio" name="colour" value="1" /> 1 <br/>
+<input type="radio" name="colour" value="2" /> 2 <br/>
+<input type="radio" name="colour" value="3" /> 3 <br/>
+<br/>
+<input type="submit" name="submit" value="submit">
 
 </form>
 
