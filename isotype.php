@@ -77,17 +77,13 @@ Function quickvis_svg_header($variables) {
   $output  = '';
   // header +DOCTYPE statments
   $output .= '<?xml version="1.0" encoding="utf-8"';
-   $output .= "?> ";
+  $output .= "?> ";
   $output .= "\n";
   $output .= "\n";
-
   $output .= '<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">';
   $output .= "\n";
-
   $output .= '<svg version="1.1" id="Layer_2" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"';
-
   $output .= ' width="'.$variables['width'].'" height="'.$variables['height'].'" viewBox="0 0 202.394 363.119" enable-background="new 0 0 202.394 363.119"';
-
   $output .= '  xml:space="preserve"> ';
   $output .= "\n";
   return $output;
@@ -241,7 +237,80 @@ function isotype_build_gradient_style($icon,$colour1, $colour2, $value) {
 }
 
 //
-/*
+
+// old function for building all visii, will be broken up
+//function to build image 
+function quickvis_build_image($variables, $adjustments) {
+  $quickvis_values=array();
+  
+  //labels adjustment values
+  if ($variables['showlabels'] == TRUE ) { $variables['labels_adjust'] = '1.2' ;
+  }
+  else {                                  
+  $variables['labels_adjust'] = '1'   ; 
+  }
+    //labels adjustment value
+  if ($variables['showheader'] == TRUE ) {
+  $variables['header_adjust'] = '1.2' ; }
+  else {                                
+  $variables['header_adjust'] = '1'   ; }
+  //key adjustment value
+    if ($variables['showkey']  == TRUE ) { 
+    $variables['key_adjust']   = '1.2' ; }
+  else {                                    
+  $variables['key_adjust']   = '1'   ; }
+  
+  // some quickvis options have custom values ( due to usage of diferent icon types )
+  // we assign these statically
+
+// start all other cases
+// TEST CODE
+if (  ( $variables['type']!= 'family') && ( $variables['type'] !='couple') ) { $quickvis_svg_builder  = ''; }
+// end of all other cases
+
+
+ return $quickvis_svg_builder;
+}
+
+function quick_vis_tile($variables,$adjustments) {
+	$icon_type=$adjustments['type'];
+
+  // flat colour
+  if ($adjustments['color'] != 'gradient') {
+    $defs           = '';
+    $defs_path      =  '';
+    $style          =' style="stroke-width:2; stroke:black; fill:'.$adjustments['color'].';" ';
+  }
+  
+	// will define style $defs_path and $defs
+  $output='';
+  $output.="\n";
+
+  $output.=' <g font-family="Verdana" font-size="34" ';
+  $output.=' transform="translate('.$adjustments['xadj'].' , '.$adjustments['yadj'].' ) " stroke="black" stroke-width="2"> ';
+  $output.="\n";
+  $output.=$variables['gradients']['icon']['1']['defs'];
+
+  $output.='	<path  '. $variables['gradients']['icon']['1']['defspath'] . $variables[$icon_type]['path'].' style='. $variables['gradients']['icon']['1']['style'].' />';
+  $output.="\n";
+
+  $output.='</g>';
+  $output.="\n";
+  return $output ;		
+}
+// end of tile function
+// end of build image functions
+
+//----------------------------------------------------------------
+
+ echo quickvis_build_image($variables,$adjustments) ;
+ 
+ 
+ 
+ 
+ // older or non-functional functions below
+ //-------------------------------------------------------------------------------------
+ /*
  function for creating gradients
 
 1. check which values are applicable for that icon
@@ -369,72 +438,7 @@ function create_gradients($variables,$adjustments) {
   // end of  gradients function
   //-------------------------------------------------------------//------------------------------------------------------------------------------------
 
-// old function for building all visii, will be broken up
-//function to build image 
-function quickvis_build_image($variables, $adjustments) {
-  $quickvis_values=array();
-  
-  //labels adjustment values
-  if ($variables['showlabels'] == TRUE ) { $variables['labels_adjust'] = '1.2' ;
-  }
-  else {                                  
-  $variables['labels_adjust'] = '1'   ; 
-  }
-    //labels adjustment value
-  if ($variables['showheader'] == TRUE ) {
-  $variables['header_adjust'] = '1.2' ; }
-  else {                                
-  $variables['header_adjust'] = '1'   ; }
-  //key adjustment value
-    if ($variables['showkey']  == TRUE ) { 
-    $variables['key_adjust']   = '1.2' ; }
-  else {                                    
-  $variables['key_adjust']   = '1'   ; }
-  
-  // some quickvis options have custom values ( due to usage of diferent icon types )
-  // we assign these statically
-
-// start all other cases
-// TEST CODE
-if (  ( $variables['type']!= 'family') && ( $variables['type'] !='couple') ) {
-	$quickvis_svg_builder  = '';
-}
-// end of all other cases
-
-
- return $quickvis_svg_builder;
-}
-
-function quick_vis_tile($variables,$adjustments) {
-	$icon_type=$adjustments['type'];
-
-  // flat colour
-  if ($adjustments['color'] != 'gradient') {
-    $defs           = '';
-    $defs_path      =  '';
-    $style          =' style="stroke-width:2; stroke:black; fill:'.$adjustments['color'].';" ';
-  }
-  
-	// will define style $defs_path and $defs
-  $output='';
-  $output.="\n";
-
-  $output.=' <g font-family="Verdana" font-size="34" ';
-  $output.=' transform="translate('.$adjustments['xadj'].' , '.$adjustments['yadj'].' ) " stroke="black" stroke-width="2"> ';
-  $output.="\n";
-  $output.=$variables['gradients']['icon']['1']['defs'];
-
-  $output.='	<path  '. $variables['gradients']['icon']['1']['defspath'] . $variables[$icon_type]['path'].' style='. $variables['gradients']['icon']['1']['style'].' />';
-  $output.="\n";
-
-  $output.='</g>';
-  $output.="\n";
-  return $output ;		
-}
-// end of tile function
-// end of build image functions
-
-//----------------------------------------------------------------
-
- echo quickvis_build_image($variables,$adjustments) ;
+ 
+ 
+ 
 ?>
