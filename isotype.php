@@ -220,16 +220,16 @@ function quickvis_paths($icon_type) {
 function isotype_palettes() {
 
   return array(
-    0 => array('#69D2E7', '#A7DBD8', '#E0E4CC', '#F38630', '#FA6900'),
-    1 => array('#556270', '#4ECDC4', '#C7F464', '#FF6B6B', '#C44D58'),
-    2 => array('#ECD078', '#D95B43', '#C02942', '#542437', '#53777A'),
-    3 => array('#FE6102', '#E9BF09', '#046D32', '#005EA8', '#D01B20'),
-    4 => array('#CA81A4', '#81A1CA', '#81CAA9', '#C4CA81', '#81444A'),
-    5 => array('#25B79F', '#4CDFCE', '#4CB2DF', '#4C7BDF', '#844CDF'),
-    6 => array('#C1D1EA', '#FF6503', '#065195', '#0B7F7C', '#FDE7D2'),
-    7 => array('#E20F76', '#FD7FBE', '#F7E4C6', '#6E7E51', '#405A3D'),
-    8 => array('#CFF09E', '#A8DBA8', '#A8DBA8', '#3B8686', '#0B486B'),
-    9 => array('#A484C6', '#231730', '#8140C7', '#C7AFE1', '#2E7D9C'),
+     0 => array('#69D2E7', '#A7DBD8', '#E0E4CC', '#F38630', '#FA6900'),
+     1 => array('#556270', '#4ECDC4', '#C7F464', '#FF6B6B', '#C44D58'),
+     2 => array('#ECD078', '#D95B43', '#C02942', '#542437', '#53777A'),
+     3 => array('#FE6102', '#E9BF09', '#046D32', '#005EA8', '#D01B20'),
+     4 => array('#CA81A4', '#81A1CA', '#81CAA9', '#C4CA81', '#81444A'),
+     5 => array('#25B79F', '#4CDFCE', '#4CB2DF', '#4C7BDF', '#844CDF'),
+     6 => array('#C1D1EA', '#FF6503', '#065195', '#0B7F7C', '#FDE7D2'),
+     7 => array('#E20F76', '#FD7FBE', '#F7E4C6', '#6E7E51', '#405A3D'),
+     8 => array('#CFF09E', '#A8DBA8', '#A8DBA8', '#3B8686', '#0B486B'),
+     9 => array('#A484C6', '#231730', '#8140C7', '#C7AFE1', '#2E7D9C'),
     10 => array('#22374C', '#1F738B', '#42BED8', '#85E6EF', '#C8EBF1'),
     11 => array('#E8DDCB', '#CDB380', '#036564', '#033649', '#031634'),
     12 => array('#FE4365', '#FC9D9A', '#F9CDAD', '#C8C8A9', '#83AF9B'),
@@ -352,7 +352,6 @@ function quick_vis_tile($variables,$adjustments) {
 
 this function will deal with individual icons, or icons that can be dealt with as a group,
 for instance  x/y sets of values on a single row, each row can be passed through this
-
 
 */	
 
