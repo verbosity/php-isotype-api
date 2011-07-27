@@ -6,7 +6,7 @@
 title: <input type="text" name="title">
 <br />
 icon type:  
-	<select name="icon">
+	<select name="type">
 		<option name="man">man</option>
 	</select>
 <br />

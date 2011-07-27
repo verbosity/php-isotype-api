@@ -6,8 +6,10 @@
 // it has been seperated out to allow for better readability and commenting of both these functions and the main api file
 
 function process_get($_GET) {
-if (isset($_GET['type']) && $_GET['type']!='')                { $variables['type']         = $_GET['type']; } 
+if (isset($_GET['type']) && $_GET['type']!='')                  { $variables['type']         = $_GET['type']; } 
 else                                                            { $variables['type']         = 'couple'; }
+if (isset($_GET['title']) && $_GET['title']!='')                { $variables['title']        = $_GET['title']; } 
+else                                                            { $variables['type']         = ' '; }
 
 // check arrangement
 // note Arrangement can be overridden dependant on numicons
@@ -25,9 +27,9 @@ if ($variables['numvalues'] == '0')                           { $variables['numv
 if (isset($_GET['numicons']) && ($_GET['numicons']!='' ) )    { $variables['numicons']     = $_GET['numicons'];   } 
 if(!isset($_GET['numicons']) or ($_GET['numicons']=='0') )    { $variables['numicons']     = 1; }
 
-if (isset($_GET['value1'])   )                                 { $variables['value1']       = $_GET['value1'] ;} 
-else                                                            { $variables['value1']       = 50 ;}
-if ($variables['value1']== 0 )                                  { $variables['value1']       = 50 ;}
+if (isset($_GET['value'])   )                                 { $variables['value']       = $_GET['value'] ;} 
+else                                                            { $variables['value']       = 50 ;}
+if ($variables['value']== 0 )                                  { $variables['value']       = 50 ;}
 		
 
 // headers & labels
@@ -60,6 +62,9 @@ Function process_post($POST) {
 	
 if (isset($_POST['type']) && $_POST['type']!='')                { $variables['type']         = $_POST['type']; } 
 else                                                            { $variables['type']         = 'couple'; }
+if (isset($_POST['title']) && $_POST['title']!='')            { $variables['title']    = $_POST['title']; } 
+else                                                          { $variables['type']         = ' '; }
+
 
 // check arrangement
 // note Arrangement can be overridden dependant on numicons
@@ -77,9 +82,9 @@ if ($variables['numvalues'] == '0')                           { $variables['numv
 if (isset($_POST['numicons']) && ($_POST['numicons']!='' ) )    { $variables['numicons']     = $_POST['numicons'];   } 
 if(!isset($_POST['numicons']) or ($_POST['numicons']=='0') )    { $variables['numicons']     = 1; }
 
-if (isset($_POST['value1'])   )                                 { $variables['value1']       = $_POST['value1'] ;} 
-else                                                            { $variables['value1']       = 50 ;}
-if ($variables['value1']== 0 )                                  { $variables['value1']       = 50 ;}
+if (isset($_POST['value'])   )                                 { $variables['value']       = $_POST['value1'] ;} 
+else                                                            { $variables['value']       = 50 ;}
+if ($variables['value']== 0 )                                  { $variables['value']       = 50 ;}
 		
 
 // headers & labels
