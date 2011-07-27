@@ -26,6 +26,7 @@ colour sets
 <input type="radio" name="colour" value="1" /> 1 <br/>
 <input type="radio" name="colour" value="2" /> 2 <br/>
 <input type="radio" name="colour" value="3" /> 3 <br/>
+note these should be set to show the actual colour palettes,
 <br/>
 <input type="submit" name="submit" value="submit">
 
