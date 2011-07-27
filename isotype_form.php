@@ -3,11 +3,13 @@
 ?>
 
 <form method="post" action="isotype.php" >
+title: <input type="text" name="title">
+<br />
 icon type:  
 	<select name="icon">
 		<option name="man">man</option>
 	</select>
-	<br />
+<br />
 value:< input type="text" name="value">
 <br />
 colour sets
