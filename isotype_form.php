@@ -20,9 +20,9 @@ icon type:
 		<option name="bus">       bus       </option>
 	</select>
 <br />
-value:< input type="text" name="value">
+value: <input type="text" name="value">
 <br />
-colour sets
+colour sets<br />
 <input type="radio" name="colour" value="1" /> 1 <br/>
 <input type="radio" name="colour" value="2" /> 2 <br/>
 <input type="radio" name="colour" value="3" /> 3 <br/>
