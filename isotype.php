@@ -90,14 +90,14 @@ function isotype_build_gradient_style($icon,$colour1, $colour2, $value) {
 
 
 
-function quick_vis_tile($variables,$adjustments) {
-	$icon_type=$adjustments['type'];
+function quick_vis_tile($variables) {
+	$icon_type=quickvis_paths($variables['type']);
 
   // flat colour
   if ($adjustments['color'] != 'gradient') {
     $defs           = '';
     $defs_path      =  '';
-    $style          =' style="stroke-width:2; stroke:black; fill:'.$adjustments['color'].';" ';
+    $style          =' style="stroke-width:2; stroke:black; fill:'.$variables['colour'].';" ';
   }
   
 	// will define style $defs_path and $defs
@@ -105,11 +105,11 @@ function quick_vis_tile($variables,$adjustments) {
   $output.="\n";
 
   $output.=' <g font-family="Verdana" font-size="34" ';
-  $output.=' transform="translate('.$adjustments['xadj'].' , '.$adjustments['yadj'].' ) " stroke="black" stroke-width="2"> ';
+  $output.='  stroke="black" stroke-width="2"> ';
   $output.="\n";
-  $output.=$variables['gradients']['icon']['1']['defs'];
+  
 
-  $output.='	<path  '. $variables['gradients']['icon']['1']['defspath'] . $variables[$icon_type]['path'].' style='. $variables['gradients']['icon']['1']['style'].' />';
+  $output.='	<path  '. $icon_type['path'].' '.$style.' />';
   $output.="\n";
 
   $output.='</g>';
