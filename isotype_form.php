@@ -28,6 +28,8 @@ colour sets<br />
 <input type="radio" name="colour" value="3" /> 3 <br/>
 note these should be set to show the actual colour palettes,
 <br/>
+show value : <input type="checkbox" name="showvalues" >
+<br />
 <input type="submit" name="submit" value="submit">
 
 </form>

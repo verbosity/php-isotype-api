@@ -30,7 +30,9 @@ if(!isset($_GET['numicons']) or ($_GET['numicons']=='0') )    { $variables['numi
 if (isset($_GET['value'])   )                                 { $variables['value']       = $_GET['value'] ;} 
 else                                                            { $variables['value']       = 50 ;}
 if ($variables['value']== 0 )                                  { $variables['value']       = 50 ;}
-		
+
+if (isset($_GET['showvalues'])   )                                 { $variables['showvalues']       = $_GET['showvalues'] ;} 
+else                                                            { $variables['showvalues']       = TRUE ;}		
 
 // headers & labels
 if (isset($_GET['showheader']) && $_GET['showheader']==1)     { $variables['showheader']   = TRUE ;}
@@ -85,7 +87,9 @@ if(!isset($_POST['numicons']) or ($_POST['numicons']=='0') )    { $variables['nu
 if (isset($_POST['value'])   )                                 { $variables['value']       = $_POST['value1'] ;} 
 else                                                            { $variables['value']       = 50 ;}
 if ($variables['value']== 0 )                                  { $variables['value']       = 50 ;}
-		
+
+if (isset($_POST['showvalues'])   )                                 { $variables['showvalues']       = $_POST['showvalues'] ;} 
+else                                                            { $variables['showvalues']       = TRUE ;}			
 
 // headers & labels
 if (isset($_POST['showheader']) && $_POST['showheader']==1)     { $variables['showheader']   = TRUE ;}
