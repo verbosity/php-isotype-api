@@ -1,4 +1,4 @@
-<?
+ <?
 // cookie cutter api script
 
 // isince this script alwayds outputs svg set the header as svg
@@ -21,7 +21,7 @@ require "process_inputs.php" ;
 if ($allow_get == TRUE )  { $variables = process_get($_GET) ; }
 if ($allow_post == TRUE ) { $variables = process_post($_POST) ; }
 
-
+ echo quickvis_build_image($variables,$adjustments) ;
 
 
 
@@ -30,9 +30,21 @@ if ($allow_post == TRUE ) { $variables = process_post($_POST) ; }
 // Build functions
 // the functions below 
 //--------------------------------------------------------------------------------------------------------------------------------------
+// old function for building all visii, will be broken up
+//function to build image 
+function quickvis_build_image($variables, $adjustments) {
+  $quickvis_svg_builder  = '' ;
+  $quickvis_svg_builder .= quickvis_svg_header();
+  $quickvis_svg_builder .= quick_vis_tile($variables,$adjustments);
+  $quickvis_svg_builder .= quickvis_svg_footer();
+  return $quickvis_svg_builder;
+}
+
+
+
 
 // SVG header and footer functions
-Function quickvis_svg_header($variables) {
+Function quickvis_svg_header() {
   $output  = '';
   // header +DOCTYPE statments
   $output .= '<?xml version="1.0" encoding="utf-8"';
@@ -41,8 +53,8 @@ Function quickvis_svg_header($variables) {
   $output .= "\n";
   $output .= '<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">';
   $output .= "\n";
-  $output .= '<svg version="1.1" id="Layer_2" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"';
-  $output .= ' width="'.$variables['width'].'" height="'.$variables['height'].'" viewBox="0 0 202.394 363.119" enable-background="new 0 0 202.394 363.119"';
+  $output .= '<svg version="1.1" id="Layer_2" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" ';
+
   $output .= '  xml:space="preserve"> ';
   $output .= "\n";
   return $output;
@@ -54,7 +66,11 @@ Function quickvis_svg_footer() {
   return $result;
 }
 //end of svg footer function
-//-------------------------------
+
+
+
+
+
 // function to get the path and dimensions of an icon
 
 // this function builts the icon information giving a single colour to the icon
@@ -71,39 +87,8 @@ function isotype_build_gradient_style($icon,$colour1, $colour2, $value) {
 
 //
 
-// old function for building all visii, will be broken up
-//function to build image 
-function quickvis_build_image($variables, $adjustments) {
-  $quickvis_values=array();
-  
-  //labels adjustment values
-  if ($variables['showlabels'] == TRUE ) { $variables['labels_adjust'] = '1.2' ;
-  }
-  else {                                  
-  $variables['labels_adjust'] = '1'   ; 
-  }
-    //labels adjustment value
-  if ($variables['showheader'] == TRUE ) {
-  $variables['header_adjust'] = '1.2' ; }
-  else {                                
-  $variables['header_adjust'] = '1'   ; }
-  //key adjustment value
-    if ($variables['showkey']  == TRUE ) { 
-    $variables['key_adjust']   = '1.2' ; }
-  else {                                    
-  $variables['key_adjust']   = '1'   ; }
-  
-  // some quickvis options have custom values ( due to usage of diferent icon types )
-  // we assign these statically
-
-// start all other cases
-// TEST CODE
-if (  ( $variables['type']!= 'family') && ( $variables['type'] !='couple') ) { $quickvis_svg_builder  = ''; }
-// end of all other cases
 
 
- return $quickvis_svg_builder;
-}
 
 function quick_vis_tile($variables,$adjustments) {
 	$icon_type=$adjustments['type'];
@@ -136,7 +121,6 @@ function quick_vis_tile($variables,$adjustments) {
 
 //----------------------------------------------------------------
 
- echo quickvis_build_image($variables,$adjustments) ;
  
  
  
@@ -251,11 +235,11 @@ function create_gradients($variables,$adjustments) {
       // do final adjustments for each icon
       if ( $gradient == FALSE ) {
       	$gradient_output['icon'][ $icon_counter]['style'] ='stroke-width:2; stroke:black; fill:blue;';
-      	 $gradient_output['icon'][$icon_counter]['defs'] ='<defs></defs>'; 
+      	$gradient_output['icon'][$icon_counter]['defs'] ='<defs></defs>'; 
       }
       else {
        	$gradient_output['icon'][ $icon_counter]['style'] ='stroke-width:2; stroke:black; fill:blue;';
-       	 $gradient_output['icon'][$icon_counter]['defs'] =' <defs> '.' <stop offset="0%" stop-color="'.$variables['palette'][$colourset]['1'].'" />'. $gradient_output['icon'][$icon_counter]['defs'].' <stop offset="100%" stop-color="'.$variables['palette'][$colourset]['1'].'" /> </linearGradient> </defs> ';  
+       	$gradient_output['icon'][$icon_counter]['defs'] =' <defs> '.' <stop offset="0%" stop-color="'.$variables['palette'][$colourset]['1'].'" />'. $gradient_output['icon'][$icon_counter]['defs'].' <stop offset="100%" stop-color="'.$variables['palette'][$colourset]['1'].'" /> </linearGradient> </defs> ';  
       }
       	 $icon_counter++;
    }
