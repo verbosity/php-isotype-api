@@ -54,9 +54,9 @@ else                                                            { $variables['vi
 // colours
 if (isset($_GET['color']) and $_GET['color']!='' )            {$variables['colour'] =$_GET['color'] ;}
 else {
-     if (!isset($_GET['colour']) or $_GET['colour']!='')      { $variables['colour'] = 1;} 
-     else                                                     { $variables['colour'] =$_GET['colour'];}	
+     if (isset($_GET['colour']) and $_GET['colour']!='')      { $variables['colour'] =$_GET['colour'];} 
 }
+if (!isset($variables['colour']) ) {$variables['colour']= 0 ; }
 
 return $variables;	
 	
@@ -115,9 +115,9 @@ else                                                            { $variables['vi
 // colours
 if (isset($_POST['color']) and $_POST['color']!='' )            {$variables['colour'] =$_POST['color'] ;}
 else {
-     if (!isset($_POST['colour']) or $_POST['colour']!='')      { $variables['colour'] = 1;} 
-     else                                                     { $variables['colour'] =$_POST['colour'];}	
-}	
+     if (isset($_POST['colour']) and $_POST['colour']!='')      { $variables['colour'] =$_POST['colour'];} 
+}
+if (!isset($variables['colour']) ) {$variables['colour']= 0 ;}
 
 return $variables;
 }
