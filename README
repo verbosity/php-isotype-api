@@ -1,5 +1,6 @@
 very initial readme.
-Please note this readme is intended for a future commit, the code is as yet not this functional.
+basic functionality is now present. the api will currently produce a single  sag image in a choice of colours.
+text support is coming next.
 
 php-isotype-api
 ------------------
