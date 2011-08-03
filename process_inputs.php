@@ -52,8 +52,11 @@ if (isset($_GET['visstyle']) && $_GET['visstyle']!='')        { $variables['viss
 else                                                            { $variables['visstyle']     = 'total_gradient';}
 
 // colours
-if (!isset($_GET['palette']) or $_GET['palette']!='')         { $variables['palette']['value']  = 1;} 
-else                                                            { $variables['palette']['value']  =$_GET['palette'];}	
+if (isset($_GET['color']) and $_GET['color']!='' )            {$variables['colour'] =$_GET['color'] ;}
+else {
+     if (!isset($_GET['colour']) or $_GET['colour']!='')      { $variables['colour'] = 1;} 
+     else                                                     { $variables['colour'] =$_GET['colour'];}	
+}
 
 return $variables;	
 	
@@ -109,8 +112,12 @@ if (isset($_POST['visstyle']) && $_POST['visstyle']!='')        { $variables['vi
 else                                                            { $variables['visstyle']     = 'total_gradient';}
 
 // colours
-if (!isset($_POST['palette']) or $_POST['palette']!='')         { $variables['palette']['value']  = 1;} 
-else                                                            { $variables['palette']['value']  =$_POST['palette'];}	
+// colours
+if (isset($_POST['color']) and $_POST['color']!='' )            {$variables['colour'] =$_POST['color'] ;}
+else {
+     if (!isset($_POST['colour']) or $_POST['colour']!='')      { $variables['colour'] = 1;} 
+     else                                                     { $variables['colour'] =$_POST['colour'];}	
+}	
 
 return $variables;
 }

@@ -92,12 +92,15 @@ function isotype_build_gradient_style($icon,$colour1, $colour2, $value) {
 
 function quick_vis_tile($variables) {
 	$icon_type=quickvis_paths($variables['type']);
+	$palettes=isotype_palettes();
+	$palette=$palettes[$variables['colour']];
+	
 
   // flat colour
   if ($adjustments['color'] != 'gradient') {
     $defs           = '';
     $defs_path      =  '';
-    $style          =' style="stroke-width:2; stroke:black; fill:'.$variables['colour'].';" ';
+    $style          =' style="stroke-width:2; stroke:black; fill:'.$palette[0].';" ';
   }
   
 	// will define style $defs_path and $defs
