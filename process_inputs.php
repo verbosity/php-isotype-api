@@ -9,7 +9,7 @@ function process_get($_GET) {
 if (isset($_GET['type']) && $_GET['type']!='')                  { $variables['type']         = $_GET['type']; } 
 else                                                            { $variables['type']         = 'man'; }
 if (isset($_GET['title']) && $_GET['title']!='')                { $variables['title']        = $_GET['title']; } 
-else                                                            { $variables['type']         = ' '; }
+else                                                            { $variables['title']         = ' '; }
 
 // check arrangement
 // note Arrangement can be overridden dependant on numicons
@@ -68,7 +68,7 @@ Function process_post($POST) {
 if (isset($_POST['type']) && $_POST['type']!='')                { $variables['type']         = $_POST['type']; } 
 else                                                            { $variables['type']         = 'man'; }
 if (isset($_POST['title']) && $_POST['title']!='')            { $variables['title']    = $_POST['title']; } 
-else                                                          { $variables['type']         = ' '; }
+else                                                          { $variables['title']         = ' '; }
 
 
 // check arrangement
