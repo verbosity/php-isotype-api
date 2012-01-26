@@ -1,10 +1,10 @@
 very initial readme.
-basic functionality is now present. the api will currently produce a single  sag image in a choice of colours.
+basic functionality is now present. the api will currently produce a single svg image in a choice of colours.
 text support is coming next.
 
 php-isotype-api
 ------------------
-these file(s) allow the creation of sag images in the isotope style (also known as the Vienna or Warsaw methods)
+these file(s) allow the creation of svg images in the isotope style (also known as the Vienna or Warsaw methods)
 
 installation
 --------------
